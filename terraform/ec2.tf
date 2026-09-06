@@ -33,7 +33,12 @@ resource "aws_instance" "web" {
     aws_security_group.ec2.id
   ]
 
+iam_instance_profile = aws_iam_instance_profile.ec2_ssm.name
+
   tags = {
     Name = "${var.project_name}-web-server"
   }
 }
+
+
+
