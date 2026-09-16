@@ -17,10 +17,14 @@ variable "helai_video" {
   default     = "helai-videography"
 }
 
-vairable "ec2_instance_type" {
+variable "ec2_instance_type" {
   description = "EC2 instance type"
   type        = string
   default     = "t3.micro"
 }
 
-
+variable "db_password" {
+  description = "Password for the RDS database"
+  type        = string
+  sensitive   = true
+}
