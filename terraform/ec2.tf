@@ -1,5 +1,4 @@
-
-#Use the latest ami image
+# Use the latest AMI image
 data "aws_ami" "amazon_linux" {
   most_recent = true
 
@@ -12,7 +11,7 @@ data "aws_ami" "amazon_linux" {
 
   filter {
     name   = "architecture"
-    values = ["a"x86_64"]
+    values = ["x86_64"]
   }
 
   filter {
@@ -21,12 +20,9 @@ data "aws_ami" "amazon_linux" {
   }
 }
 
-
-
 resource "aws_instance" "web" {
   ami           = data.aws_ami.amazon_linux.id
   instance_type = var.ec2_instance_type
-
 
   subnet_id = aws_subnet.public.id
 
@@ -34,13 +30,10 @@ resource "aws_instance" "web" {
     aws_security_group.ec2.id
   ]
 
-#Connecting the instance profile to the ec2
-iam_instance_profile = aws_iam_instance_profile.ec2_ssm.name
+  # Connecting the instance profile to the EC2
+  iam_instance_profile = aws_iam_instance_profile.ec2_ssm.name
 
   tags = {
     Name = "${var.project_name}-web-server"
   }
 }
-
-
-
