@@ -34,7 +34,7 @@ resource "aws_security_group" "ec2" {
 
 
 
-resource "aws_security_group" "rds {
+resource "aws_security_group" "rds" {
   name        = "${var.project_name}-rds-sg"
   description = "Security group for the RDS database"
   vpc_id      = aws_vpc.main.id
