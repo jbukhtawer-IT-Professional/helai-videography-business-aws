@@ -1,6 +1,6 @@
 
 variable "aws_region" {
-  description = "AWS region where the infrastructue will be deployed"
+  description = "AWS region where the infrastructure will be deployed"
   type        = string
   default     = "ca-central-1"
 }
@@ -11,7 +11,7 @@ variable "environment" {
   default     = "development"
 }
 
-variable "helai_video" {
+variable "project_name" {
   description = "Name of the project"
   type        = string
   default     = "helai-videography"
