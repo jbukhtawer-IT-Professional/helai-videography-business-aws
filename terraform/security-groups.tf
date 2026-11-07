@@ -1,3 +1,4 @@
+
 resource "aws_security_group" "ec2" {
   name        = "${var.project_name}-ec2-sg"
   description = "Security group for the EC2 web server"
@@ -32,8 +33,6 @@ resource "aws_security_group" "ec2" {
   }
 }
 
-
-
 resource "aws_security_group" "rds" {
   name        = "${var.project_name}-rds-sg"
   description = "Security group for the RDS database"
@@ -46,7 +45,7 @@ resource "aws_security_group" "rds" {
     protocol        = "tcp"
     security_groups = [aws_security_group.ec2.id]
   }
-  
+
   egress {
     description = "Allow outbound traffic"
     from_port   = 0
